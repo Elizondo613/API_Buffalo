@@ -2,6 +2,7 @@ const express = require('express')
 const mysql = require('mysql')
 const myconn = require('express-myconnection')
 const ProductoRoutes = require('./routes/producto.routes')
+const cors = require('cors')
 
 const app = express()
 
@@ -17,7 +18,23 @@ const dbOptions = {
 
 //Middlewares
 app.use(myconn(mysql, dbOptions, 'single'))
+app.use(cors())
 app.use(express.json())
+
+app.post("/user/login", (req, res)=>{
+    const usuario = req.body.usuario;
+    const clave = req.body.clave;
+
+    if(usuario=='admin' && clave=='admin123'){
+        const datos = {
+            id: "123",
+            nombre: "Admin 1",
+            email: "admin123@gmail.com"
+        }
+    }else{
+        res.status(400).send("Credenciales incorrectas")
+    }
+})
 
 //Rutas
 app.get('/', (req, res)=>{
