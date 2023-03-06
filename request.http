@@ -30,3 +30,30 @@ Content-Type: application/json
     "Precio_Compra": 275,
     "Imagen": "https://www.marnaula.co.uk/41-home_default/ron-zacapa-23-anos-centenario-premium-sistema-solera-.jpg"
 }
+
+//PROVEEDORES
+###
+GET http://localhost:4000/api/proveedor HTTP/1.1
+
+###
+POST http://localhost:4000/api/proveedor HTTP/1.1
+Content-Type: application/json
+
+{
+    "Nombre": "Gallo",
+    "Direccion": "Zona 3, Quetzaltenango",
+    "Telefono": "77675819"
+}
+
+###
+DELETE http://localhost:4000/api/proveedor/1 HTTP/1.1
+
+###
+PUT http://localhost:4000/api/proveedor/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "Nombre": "Gallo",
+    "Direccion": "Zona 3, Quetzaltenango",
+    "Telefono": "77675819" 
+}
