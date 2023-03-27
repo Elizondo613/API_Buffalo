@@ -62,13 +62,14 @@ app.post("/user/login", (req, res)=>{
     }
 })
 
+//Verificar el token para dar acceso: verifyToken 
 //Rutas
-app.get('/', verifyToken, (req, res)=>{
+app.get('/', (req, res)=>{
     res.send('API funcionando')
 })
 
-app.use('/api', verifyToken, ProductoRoutes)
-app.use('/api', verifyToken, ProveedorRoutes)
+app.use('/api', ProductoRoutes)
+app.use('/api', ProveedorRoutes)
 
 //Servidor corriendo
 app.listen(app.get('port'), ()=>{
