@@ -3,6 +3,7 @@ const mysql = require('mysql')
 const myconn = require('express-myconnection')
 const ProductoRoutes = require('./routes/producto.routes')
 const ProveedorRoutes = require('./routes/proveedor.routes')
+const CompraRoutes = require('./routes/compra.routes')
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
 
@@ -70,6 +71,7 @@ app.get('/', (req, res)=>{
 
 app.use('/api', ProductoRoutes)
 app.use('/api', ProveedorRoutes)
+app.use('/api', CompraRoutes)
 
 //Servidor corriendo
 app.listen(app.get('port'), ()=>{

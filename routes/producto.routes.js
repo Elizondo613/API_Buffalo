@@ -32,7 +32,7 @@ routes.delete('/producto/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
 
-        conn.query('DELETE FROM producto WHERE id = ?', [req.params.id], (err, rows)=>{
+        conn.query('DELETE FROM producto WHERE idproducto = ?', [req.params.id], (err, rows)=>{
             if(err) return res.send(err)
 
             res.send('Producto eliminado!')
@@ -46,7 +46,7 @@ routes.put('/producto/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
 
-        conn.query('UPDATE producto set ? WHERE id = ?', [req.body, req.params.id], (err, rows)=>{
+        conn.query('UPDATE producto set ? WHERE idproducto = ?', [req.body, req.params.id], (err, rows)=>{
             if(err) return res.send(err)
 
             res.send('Producto actualizado!')
